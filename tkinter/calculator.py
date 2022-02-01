@@ -4,13 +4,31 @@ root = tk.Tk()
 root.title('Simple Calculator')
 one = tk.StringVar()
 
-e = tk.Entry(root, width=35, borderwidth=5)
+e = tk.Entry(root, width=50, borderwidth=3)
 e.grid(column=0, row=0, columnspan=3, padx=10, pady=10)
 
 def button_click(arg):
     current = e.get() + arg
     e.delete(0, "end")
     e.insert(0, current)
+
+def button_clear():
+    e.delete(0, "end")
+
+def button_addition():
+    first_arg = int(e.get())
+    e.delete(0, "end")
+    e.insert(0, str(first_arg) + ' + ')
+
+def button_equal():
+    args = e.get().split('+')
+    print(args)
+    sum = 0
+    for num in args:
+        sum+= int(num.strip())
+    e.delete(0, "end")
+    e.insert(0, str(sum))
+
 
 # buttons = []
 # for num in range(10):
@@ -26,9 +44,9 @@ button_7 = tk.Button(root, text="7", padx=40, pady=20, command=lambda: button_cl
 button_8 = tk.Button(root, text="8", padx=40, pady=20, command=lambda: button_click('8'))
 button_9 = tk.Button(root, text="9", padx=40, pady=20, command=lambda: button_click('9'))
 button_0 = tk.Button(root, text="0", padx=40, pady=20, command=lambda: button_click('0'))
-button_add = tk.Button(root, text="+", padx=39, pady=20, command=button_click)
-button_equal = tk.Button(root, text="=", padx=91, pady=20, command=button_click)
-button_clear = tk.Button(root, text="Clear", padx=79, pady=20, command=button_click)
+button_add = tk.Button(root, text="+", padx=39, pady=20, command=button_addition)
+button_equal = tk.Button(root, text="=", padx=91, pady=20, command=button_equal)
+button_clear = tk.Button(root, text="Clear", padx=83, pady=20, command=button_clear)
 
 button_1.grid(row=3, column=0)
 button_2.grid(row=3, column=1)
