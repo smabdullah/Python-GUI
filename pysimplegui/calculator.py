@@ -12,7 +12,7 @@ def button_click(arg):
     e.delete(0, "end")
     e.insert(0, current)
 
-def button_clears():
+def button_clear():
     e.delete(0, "end")
 
 def button_operation(icon, operation):
@@ -25,7 +25,7 @@ def button_operation(icon, operation):
     e.delete(0, "end")
     e.insert(0, str(first_arg) + icon)
 
-def button_equals():
+def button_equal():
     if op == 'add':
         args = e.get().split('+')
         res = int(args[0].strip()) + int(args[1].strip())
@@ -58,8 +58,8 @@ button_8 = tk.Button(root, text="8", padx=40, pady=20, command=lambda: button_cl
 button_9 = tk.Button(root, text="9", padx=40, pady=20, command=lambda: button_click('9'))
 button_0 = tk.Button(root, text="0", padx=40, pady=20, command=lambda: button_click('0'))
 button_add = tk.Button(root, text="+", padx=39, pady=20, command=lambda: button_operation(' + ', 'add'))
-button_equal = tk.Button(root, text="=", padx=92, pady=20, command=button_equals)
-button_clear = tk.Button(root, text="Clear", padx=83, pady=20, command=button_clears)
+button_equal = tk.Button(root, text="=", padx=92, pady=20, command=button_equal)
+button_clear = tk.Button(root, text="Clear", padx=83, pady=20, command=button_clear)
 button_sub = tk.Button(root, text="-", padx=40, pady=20, command=lambda: button_operation(' - ', 'sub'))
 button_mul = tk.Button(root, text="*", padx=39, pady=20, command=lambda: button_operation(' * ', 'mul'))
 button_div = tk.Button(root, text="/", padx=39, pady=20, command=lambda: button_operation(' / ', 'div'))
